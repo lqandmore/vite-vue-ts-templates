@@ -27,6 +27,8 @@
     "postcss": "^8.4.21",
     "sass": "^1.61.0",
     "typescript": "^5.0.4",
+    "unplugin-auto-import": "^0.15.2",
+    "unplugin-vue-components": "^0.24.1",
     "vite": "^4.2.0",
     "vue-tsc": "^1.2.0"
   }

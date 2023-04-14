@@ -1,11 +1,15 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+/** 路径查找 */
 const pathResovle = (dir: string) : string => {
   return resolve(__dirname,'.', dir)
 }
-
+/** 设置别名 */
 const alias :Record <string, string> = {
   '@': pathResovle('src'),
   'components': pathResovle('src/components'),
@@ -28,5 +32,13 @@ export default defineConfig({
   resolve: {
     alias,
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
 })
